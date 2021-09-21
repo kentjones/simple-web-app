@@ -3,7 +3,7 @@ const express = require('express');
 
 const app = express();
 
-app.use('/images', express.static('images'));
+app.use(express.static(__dirname+'/public'));
 
 app.get('/', (request, response) => {
   
@@ -38,7 +38,7 @@ app.get('/', (request, response) => {
         <p>From desktop to GitHub to running under PM2.</p>
  
         <div>
-          <img src="http:/images/captainapollo_webhop_me.png" >
+          <img src="/images/captainapollo_webhop_me.png" >
         </div>
  
         </body>
