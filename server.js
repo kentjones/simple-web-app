@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const PORT = 5000;
 
-app.use(express.static('public'));
+app.use(express.static('http://localhost:5000','public'));
 
 app.get('/', (request, response) => {
   
@@ -16,7 +16,7 @@ app.get('/', (request, response) => {
 
   writeFileSync('./count.txt', newCount.toString(), {flag: 'w+'});
 
-  response.send(index.html);
+  response.sendFile(index.html);
 
 });
 
