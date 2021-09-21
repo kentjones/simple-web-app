@@ -2,6 +2,7 @@ const {readFileSync, writeFileSync} = require('fs');
 const express = require('express');
 
 const app = express();
+const PORT = 5000;
 
 app.use(express.static('public'));
 
@@ -15,36 +16,8 @@ app.get('/', (request, response) => {
 
   writeFileSync('./count.txt', newCount.toString(), {flag: 'w+'});
 
-  response.send(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="utf-8" />
-          <meta name="viewport"content="width=device-width, initial-scale=1" />
-          <title>PiO1 Hosted Website</title>
-          <style>
-            img {
-              width: 800px;
-              height: auto;
-            }
-          </style>
-        </head>
-
-        <body>
-        <h1>Welcome to Captain Apollo's Website!</h1>
-        <p>This page has been viewed ${newCount} times!</p>
-
-        <p>This simple little application is being used to test the end to end development life cycle.</p>
-        <p>From desktop to GitHub to running under PM2.</p>
- 
-        <div>
-          <img src="/images/captainapollo_webhop_me.png" >
-        </div>
- 
-        </body>
-        </html> 
-  `);
+  response.send(index.html);
 
 });
 
-app.listen(5000, () => console.log('http://localhost:5000'));
+app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
