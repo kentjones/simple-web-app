@@ -3,17 +3,18 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const LOCAL_HOST = 'http://localhost:5000/';
+const PORT = process.env.PORT || 5000;
 
-app.use(express.static('public'));
+const LOCAL_HOST = `http://localhost:${PORT}`;
+
+app.use(express.static(path.join(LOCAL_HOST,'public')));
 
 app.get('/', (request, response) => {
   
   const count = readFileSync('./count.txt', 'utf-8');
 
-  console.log(`Vister count= ${count}`);
-  console.log(__dirname);
-
+  console.log(`Vister count= ${count} at ${__dirname}`);
+  
   const newCount = parseInt(count) + 1;
 
   writeFileSync('./count.txt', newCount.toString(), {flag: 'w+'});
@@ -41,11 +42,11 @@ app.get('/', (request, response) => {
     <p>From desktop to GitHub to running under PM2.</p>
     
     <div>
-      <img src="/images/captainapollo_webhop_me.png" >
+      <img src="/public/images/captainapollo_webhop_me.png" >
     </div>
     
     </body>
     </html>` )
 });
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+
+app.listen(PORT, () => console.log(LOCAL_HOST));
