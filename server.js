@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000;
 
 const LOCAL_HOST = `http://localhost:${PORT}`;
 
-app.use('/static',express.static('public'));
+app.use(express.static('public'));
 
 app.get('/', (request, response) => {
   
@@ -42,7 +42,7 @@ app.get('/', (request, response) => {
     <p>From desktop to GitHub to running under PM2.</p>
     
     <div>
-      <img src="/static/images/captainapollo_webhop_me.png" >
+      <img src="/images/captainapollo_webhop_me.png" >
     </div>
     
     </body>
