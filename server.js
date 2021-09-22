@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const LOCAL_HOST = 'http://localhost:5000/';
 
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static('public'));
 
 app.get('/', (request, response) => {
   
@@ -31,14 +31,10 @@ app.get('/', (request, response) => {
           height: auto;
         }
       </style>
-      <script>
-        const params = new URLSearchParams(window.location.search)
-        console.log(params.get('newCount'))
-      </script>
     </head>
     
     <body>
-    <h1>Welcome to Captain Apollo's Website!</h1>
+    <h1>Welcome to Captain Apollo's Website.</h1>
     <p>This page has been viewed ${newCount} times!</p>
     
     <p>This simple little application is being used to test the end to end development life cycle.</p>
