@@ -10,7 +10,7 @@ pipeline {
 			}
 		
 			steps {
-				echo 'Hello World'
+				echo 'Hello from my first application to run under my Pi web server'
 			}
 		}
 	}
