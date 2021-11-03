@@ -6,10 +6,11 @@ pipeline {
 	stages {
 		stage('Build') {
 		
-			agent any
-			// options {
+			// agent any
+			//  options {
 			// 	skipDefaultCheckout()
 			// }
+			
 		
 			steps {
 				echo 'Hello World'
