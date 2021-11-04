@@ -12,6 +12,7 @@ pipeline {
 		stage('Initialize') {
 			
 			steps {
+				echo 'checking npm version'
 				sh 'npm -v'
 			}
 			post{
@@ -26,6 +27,7 @@ pipeline {
 		stage('Build'){
 			
 			steps {
+				echo 'installing project dependencies'
 				sh 'npm install'
 			}
 			post{
