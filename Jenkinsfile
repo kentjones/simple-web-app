@@ -10,23 +10,29 @@ pipeline {
 	stages {
 
 		stage('Initialize') {
-		
+			
+			steps {
+				echo 'Initialized'
+			}
 			post{
 				success {
-					echo 'npm install complete'
+					echo 'initialized complete'
 				}
 				failure {
-					echo 'npm install failed'
+					echo 'initalized failed'
 				}
 			}
 		}
 		stage('Build'){
-			steps{
-				sh 'npm -v'
-			}
+			
 			steps {
+				sh 'npm -v'
+				try {
 					sh 'npm install'
-				echo 'Initialized'
+				} catch(error){
+					echo "error: ${error.message}"
+					throw
+				}
 			}
 			post{
 				success {
