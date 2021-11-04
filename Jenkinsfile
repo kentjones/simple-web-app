@@ -31,7 +31,6 @@ pipeline {
 					sh 'npm install'
 				} catch(error){
 					echo "error: ${error.message}"
-					throw
 				}
 			}
 			post{
