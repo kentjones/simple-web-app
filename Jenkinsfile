@@ -4,6 +4,9 @@ pipeline {
 	tools {
 		nodejs 'NodeJs-17.0.1'
 	}
+	options {
+		 timestamps()
+	}
 	stages {
 
 		stage('Initialize') {
