@@ -1,28 +1,29 @@
 pipeline {
 	
 	agent any
-
+	tools {
+		nodejs `NodeJs 17.0.1`
+	}
 	stages {
 
 		stage('Initialize') {
 		
 			steps {
-				sh 'echo PATH = ${PATH}'
-				sh 'echo JAVA_HOME = ${JAVA_HOME}'
-				echo 'Hello World'
+					sh 'npm install'
+				echo 'Initialized'
+			}
+			post{
+				success {
+					echo 'npm install complete'
+				}
+				failure {
+					echo 'npm install failed'
+				}
 			}
 		}
 		stage('Build'){
 			steps{
-				sh 'npm run build'
-			}
-			post{
-				success {
-					echo 'Success, now archiving artifacts'
-				}
-				failure {
-					echo 'build failed.'
-				}
+				sh 'npm -v'
 			}
 		}
 		stage('Deploy to Staging'){
