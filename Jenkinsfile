@@ -1,5 +1,7 @@
 pipeline {
+	
 	agent any
+
 	stages {
 
 		stage('Initialize') {
@@ -12,7 +14,16 @@ pipeline {
 		}
 		stage('Build'){
 			steps{
-				echo 'Hello Build'
+				echo 'Build the code'
+			}
+			post{
+				echo 'Success, now archiving artifacts'
+				
+			}
+		}
+		stage('Deploy to Staging'){
+			steps{
+				echo 'Deploy to Staging'
 			}
 		}
 	}
