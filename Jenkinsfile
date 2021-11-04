@@ -12,7 +12,7 @@ pipeline {
 		stage('Initialize') {
 			
 			steps {
-				echo 'Initialized'
+				sh 'npm -v'
 			}
 			post{
 				success {
@@ -26,7 +26,6 @@ pipeline {
 		stage('Build'){
 			
 			steps {
-				sh 'npm -v'
 				sh 'npm install'
 			}
 			post{
