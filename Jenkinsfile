@@ -1,19 +1,20 @@
 pipeline {
-	agent none
-	options {
-		skipDefaultCheckout()
-	}
+	agent any
 	stages {
-		stage('Build') {
-		
-			// agent any
-			//  options {
-			// 	skipDefaultCheckout()
-			// }
-			
+
+		stage('Initialize') {
 		
 			steps {
+				sh '''
+					echo "PATH = ${PATH}"
+					echo "GRADLE_HOME = ${GRADL_HOME}
+				'''
 				echo 'Hello World'
+			}
+		}
+		stage('Build'){
+			steps{
+				echo 'Hello Build'
 			}
 		}
 	}
