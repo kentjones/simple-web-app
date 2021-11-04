@@ -27,11 +27,7 @@ pipeline {
 			
 			steps {
 				sh 'npm -v'
-				try {
-					sh 'npm install'
-				} catch(error){
-					echo "error: ${error.message}"
-				}
+				sh 'npm install'
 			}
 			post{
 				success {
