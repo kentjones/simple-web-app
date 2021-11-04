@@ -11,10 +11,6 @@ pipeline {
 
 		stage('Initialize') {
 		
-			steps {
-					sh 'npm install'
-				echo 'Initialized'
-			}
 			post{
 				success {
 					echo 'npm install complete'
@@ -28,6 +24,19 @@ pipeline {
 			steps{
 				sh 'npm -v'
 			}
+			steps {
+					sh 'npm install'
+				echo 'Initialized'
+			}
+			post{
+				success {
+					echo 'npm install complete'
+				}
+				failure {
+					echo 'npm install failed'
+				}
+			}
+
 		}
 		stage('Deploy to Staging'){
 			steps{
