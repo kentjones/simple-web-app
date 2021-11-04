@@ -14,13 +14,15 @@ pipeline {
 		}
 		stage('Build'){
 			steps{
-				echo 'Build the code'
+				sh 'npm run build'
 			}
 			post{
 				success {
 					echo 'Success, now archiving artifacts'
 				}
-				
+				failure {
+					echo 'build failed.'
+				}
 			}
 		}
 		stage('Deploy to Staging'){
