@@ -7,7 +7,7 @@ pipeline {
 			steps {
 				sh '''
 					echo "PATH = ${PATH}"
-					echo "GRADLE_HOME = ${GRADL_HOME}
+					echo "JAVA_HOME = ${JAVA_HOME}
 				'''
 				echo 'Hello World'
 			}
