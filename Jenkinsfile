@@ -17,7 +17,9 @@ pipeline {
 				echo 'Build the code'
 			}
 			post{
-				echo 'Success, now archiving artifacts'
+				success {
+					echo 'Success, now archiving artifacts'
+				}
 				
 			}
 		}
