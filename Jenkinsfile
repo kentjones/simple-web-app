@@ -41,6 +41,9 @@ pipeline {
 		}
 		stage('Deploy to Staging'){
 			steps{
+				timeout(time: 4, unit:'MINUTES') {
+					input message: 'Approve Staging Deployment?', submitter: 'admin'
+				}
 				echo 'Deploy to Staging'
 			}
 		}
