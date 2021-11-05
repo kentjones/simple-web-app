@@ -13,7 +13,7 @@ pipeline {
 			
 			steps {
 				echo 'checking npm version'
-				sh 'npm -v'
+//				sh 'npm -v'
 			}
 			post{
 				success {
@@ -28,7 +28,7 @@ pipeline {
 			
 			steps {
 				echo 'installing project dependencies'
-				sh 'npm install'
+//				sh 'npm install'
 			}
 			post{
 				success {
